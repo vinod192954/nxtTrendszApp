@@ -1,0 +1,35 @@
+.Home-container{
+    box-sizing: border-box;
+    padding: 20px;
+    margin-top:10px;
+    display: flex;
+
+}
+.home-img-container{
+    padding: 10px;
+}
+.content-cotainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    
+}
+.content-cotainer h1{
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.nxt-trends-home{
+    height: 420px;
+}
+.shop-button{
+    background-color: blue;
+    padding: 10px;
+    border-width: 0px;
+    border-radius: 10px;
+    color: #fff;
+    width: 150px;
+    height: 45px;
+    margin-top: 15px;
+}

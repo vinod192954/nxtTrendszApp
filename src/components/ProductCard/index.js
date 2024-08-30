@@ -5,10 +5,10 @@ const ProductCard=(props)=>{
     return (
         <li className="product-item">
             <img className="product-image" src={imageUrl} alt={title} />
-            <h1>{title}</h1>
+            <h1 className="title-name">{title}</h1>
             <p>{`by ${brand}`}</p>
             <div className="product-details">
-                <p>{`Rs ${price}/-`}</p>
+                <p className="price">{`Rs ${price}/-`}</p>
                 <div className="rating-container">
                     <p>{rating}</p>
                     <img src="https://assets.ccbp.in/frontend/react-js/star-img.png"

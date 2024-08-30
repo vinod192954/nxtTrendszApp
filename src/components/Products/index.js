@@ -1,11 +1,12 @@
 import Header from "../Header"
 import AllProductsItems from "../AllProductsItems"
+import "./index.css"
 const Products=()=>{
     return (
         <>
         <Header/>
-            <div>
-                <h1>All Products</h1>
+            <div className="products-section">
+                <h1 className="products-heading">All Products</h1>
                <AllProductsItems/>
             </div>
         </>

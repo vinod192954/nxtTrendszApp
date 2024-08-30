@@ -1,0 +1,14 @@
+.products-heading{
+    color: #475569;
+    font-family: 'Roboto';
+    font-size: 32px;
+    font-weight: 500;
+    margin-top: 48px;
+}
+.products-section{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    width: 100%;
+    
+}

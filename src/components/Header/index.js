@@ -32,13 +32,13 @@ const Header = (props)=>{
             </div>
             <div className="header-links">
                 <ul className="nav-links">
-                    <Link to="/home">
+                    <Link className="link" to="/home">
                         <li>Home</li>
                     </Link>
-                    <Link to="/products">
+                    <Link className="link" to="/products">
                         <li>Products</li>
                     </Link>
-                    <Link to="/cart">
+                    <Link className="link" to="/cart">
                         <li>Cart</li>
                     </Link>
                     <button onClick={onClickLogout} type="button">
@@ -52,9 +52,15 @@ const Header = (props)=>{
            
             {isShow && ( <div className='mobile-view-links'>
             <ul className="mobile-nav-links">
+                <Link className="link" to="/home">
                     <li>Home</li>
+                    </Link>
+                <Link className="link" to="/products">
                     <li>Products</li>
+                    </Link>
+                <Link className="link" to="/cart">
                     <li>Cart</li>
+                    </Link>
                     <button onClick={onClickLogout} type="button">
                         Logout
                     </button>

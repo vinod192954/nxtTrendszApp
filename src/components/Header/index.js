@@ -1,4 +1,5 @@
 import {useState} from "react"
+import { Link } from "react-router-dom";
 import Cookies from 'js-cookie'
 import { IoMdClose } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -31,9 +32,15 @@ const Header = (props)=>{
             </div>
             <div className="header-links">
                 <ul className="nav-links">
-                    <li>Home</li>
-                    <li>Products</li>
-                    <li>Cart</li>
+                    <Link to="/home">
+                        <li>Home</li>
+                    </Link>
+                    <Link to="/products">
+                        <li>Products</li>
+                    </Link>
+                    <Link to="/cart">
+                        <li>Cart</li>
+                    </Link>
                     <button onClick={onClickLogout} type="button">
                         Logout
                     </button>

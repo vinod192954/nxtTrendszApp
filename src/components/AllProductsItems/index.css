@@ -1,0 +1,10 @@
+.products-container{
+    width: 100%;
+}
+.item-list{
+    list-style-type: none;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}

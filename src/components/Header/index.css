@@ -31,6 +31,8 @@
     margin-right: 20px;
     color: #000;
     font-weight: 600;
+    cursor: pointer;
+    
 }
 .nav-links button{
     background-color: blue;
@@ -39,6 +41,7 @@
     border-width: 0px;
     border-radius: 5px;
     width: 80px;
+    cursor: pointer;
 }
 @media screen and (max-width:576px) {
     .hamburger-icon{

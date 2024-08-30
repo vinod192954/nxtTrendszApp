@@ -3,6 +3,7 @@
     padding: 20px;
     margin-top:10px;
     display: flex;
+    width: 100%;
 
 }
 .home-img-container{
@@ -32,4 +33,17 @@
     width: 150px;
     height: 45px;
     margin-top: 15px;
+}
+@media screen and (max-width:769px) {
+    .Home-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .content-cotainer{
+        order: 1;
+    }
+    .nxt-trends-home{
+        height: 250px;
+    }
 }

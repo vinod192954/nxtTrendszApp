@@ -1,5 +1,15 @@
+import Cookies from 'js-cookie'
+import {withRouter} from 'react-router-dom'
 import "./index.css"
-const Header = ()=>{
+
+const Header = (props)=>{
+
+    const onClickLogout=()=>{
+        Cookies.remove("jwt_token")
+        const {history} = props
+        history.replace("/")
+    }
+
     return (
         <div className="NavBar-container">
             <div className="logo-container">
@@ -11,7 +21,7 @@ const Header = ()=>{
                     <li>Home</li>
                     <li>Products</li>
                     <li>Cart</li>
-                    <button type="button">
+                    <button onClick={onClickLogout} type="button">
                         Logout
                     </button>
                 </ul>
@@ -20,4 +30,4 @@ const Header = ()=>{
     )
 }
 
-export default Header
+export default withRouter(Header)

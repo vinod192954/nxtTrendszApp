@@ -11,9 +11,10 @@ const LoginForm=(props)=>{
     const onChangePassword=(event)=>{
         setPassword(event.target.value)
     }
+    
 
     const authenticateSuccessfully=(jwtToken)=>{
-        Cookies.set("jwt_token",jwtToken) 
+        Cookies.set("jwt_token",jwtToken,{expires:30}) 
         const {history} = props 
         history.replace('/home')
     }

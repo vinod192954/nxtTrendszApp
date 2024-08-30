@@ -25,7 +25,6 @@
 }
 .user-input{
     padding: 10px;
-    width: 250px;
     background-color: rgb(210, 210, 241,0.2);
     border-color: #eae7e7;
     border-width: 0px;
@@ -51,8 +50,70 @@
     color: #fff;
 }
 .login-image-container{
-    width: 50%;
+    width: 55%;
 }
 .right-side-section{
-    width: 30%;
+    width: 45%;
+}
+
+@media screen and (max-width:769px) {
+    
+    .login-image-container{
+        width: 33.33%;
+        
+
+    }
+    .right-side-section{
+        width: 33.33%;
+    }
+
+    .Login-page{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .website-login{
+        height: 100px;
+    }
+    .login-form-container{
+      height: 180px;
+      width: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+    }
+    .website-logo{
+        height: 15px;
+    }
+    .login-card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+   
+    .user-input{
+        padding: 5px;
+        font-size: 8px;
+        border-radius: 2px;
+    }
+    .submit-button{
+        width: 110px;
+        height: 20px;
+        font-size: 8px;
+        padding: 5px;
+        margin-top: 5px;
+        border-radius: 5px;
+    }
+    .Name{
+        font-size: 8px;
+        margin: 2px;
+    }
+    .login-card div{
+        margin-top: 0px;
+        padding: 5px;
+    }
 }

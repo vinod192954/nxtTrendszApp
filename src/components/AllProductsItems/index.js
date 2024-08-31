@@ -1,15 +1,34 @@
 import { useState,useEffect } from "react"
 import{ThreeDots}from 'react-loader-spinner'
 import ProductCard from "../ProductCard"
+import ProductsHeader from "../ProductsHeader"
 import Cookies from 'js-cookie'
-import "./index.css"
+import "./index.css" 
+
+const sortbyOptions = [
+    {
+      optionId: 'PRICE_HIGH',
+      displayText: 'Price (High-Low)',
+    },
+    {
+      optionId: 'PRICE_LOW',
+      displayText: 'Price (Low-High)',
+    },
+  ]
+  
 const AllProductsItems=()=>{
   const [productsList,setProductsList] = useState([])
   const [isLoading,setLoading] = useState(false)
+  const [activeOptionId,setOptionId] = useState(sortbyOptions[0].optionId)
+  
+  
+ 
+  
+  
   const getProductsItems=async()=>{
     setLoading(true)
     const jwtToken = Cookies.get("jwt_token")
-    const url="https://apis.ccbp.in/products" 
+    const url=`https://apis.ccbp.in/products?sort_by=${activeOptionId}`
     const options = {
         method:'GET',
         headers:{
@@ -36,16 +55,28 @@ const AllProductsItems=()=>{
 
   useEffect(()=>{
         getProductsItems()
-    },[])
+    },[activeOptionId])
+
+
+    const updateActiveOptionId=(activeId)=>{
+        setOptionId(activeId)
+        getProductsItems()
+  }
 
  const renderLoader=()=>(
     <div className="products-loader-container">
        <ThreeDots color="#0b69ff" height={50} width={50} />
     </div>
  )
-const renderProducts=()=>( <ul className="item-list">{productsList.map((eachProduct)=>(
+const renderProducts=()=>( 
+    <>
+        <ProductsHeader sortbyOptions={sortbyOptions} activeOptionId={activeOptionId} updateActiveOptionId={updateActiveOptionId} />
+    <ul className="item-list">{productsList.map((eachProduct)=>(
     <ProductCard product={eachProduct} key={eachProduct.id} />
-))}</ul>)
+        ))}
+    </ul>
+    </>
+    )
     return (
         <div className="products-container">
            {isLoading ? renderLoader() : renderProducts()}

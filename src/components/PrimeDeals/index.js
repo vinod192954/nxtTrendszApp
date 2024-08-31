@@ -66,7 +66,7 @@ const PrimeDeals=()=>{
 
      const renderPrimeDeals=()=>(
      <div>
-        <h1>Prime Deals</h1>
+        <h1 className="prime-heading">Prime Deals</h1>
         <ul className="prime-deals-section">{primeDeals.map((eachPrimeDeal)=>(
             <ProductCard product={eachPrimeDeal} key={eachPrimeDeal.id} />
         ))}</ul>

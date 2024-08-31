@@ -8,7 +8,6 @@ const Products=()=>{
         <Header/>
             <div className="products-section">
                 <PrimeDeals />
-                <h1 className="products-heading">All Products</h1>
                <AllProductsItems/>
             </div>
         </>

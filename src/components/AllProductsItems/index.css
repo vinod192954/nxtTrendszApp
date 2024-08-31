@@ -8,3 +8,8 @@
     display: flex;
     flex-wrap: wrap;
 }
+.products-loader-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

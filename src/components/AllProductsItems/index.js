@@ -1,10 +1,13 @@
 import { useState,useEffect } from "react"
+import{ThreeDots}from 'react-loader-spinner'
 import ProductCard from "../ProductCard"
 import Cookies from 'js-cookie'
 import "./index.css"
 const AllProductsItems=()=>{
   const [productsList,setProductsList] = useState([])
+  const [isLoading,setLoading] = useState(false)
   const getProductsItems=async()=>{
+    setLoading(true)
     const jwtToken = Cookies.get("jwt_token")
     const url="https://apis.ccbp.in/products" 
     const options = {
@@ -27,6 +30,7 @@ const AllProductsItems=()=>{
        }))
        console.log(newProducts)
        setProductsList(newProducts)
+       setLoading(false)
     }
   }  
 
@@ -34,11 +38,17 @@ const AllProductsItems=()=>{
         getProductsItems()
     },[])
 
+ const renderLoader=()=>(
+    <div className="products-loader-container">
+       <ThreeDots color="#0b69ff" height={50} width={50} />
+    </div>
+ )
+const renderProducts=()=>( <ul className="item-list">{productsList.map((eachProduct)=>(
+    <ProductCard product={eachProduct} key={eachProduct.id} />
+))}</ul>)
     return (
         <div className="products-container">
-            <ul className="item-list">{productsList.map((eachProduct)=>(
-                <ProductCard product={eachProduct} key={eachProduct.id} />
-            ))}</ul>
+           {isLoading ? renderLoader() : renderProducts()}
         </div>
     )
 }

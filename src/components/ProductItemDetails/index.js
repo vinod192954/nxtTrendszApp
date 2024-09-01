@@ -1,6 +1,7 @@
 import { useState,useEffect } from "react"
 import Cookies from "js-cookie"
 import Header from "../Header"
+import SimilarProducts from "../SimilarProducts"
 import "./index.css"
 const ProductItemDetails=(props)=>{
      const [detailedProductItem,setDetailedProduct] = useState({})
@@ -28,6 +29,7 @@ const ProductItemDetails=(props)=>{
             price:data.price,
             rating:data.rating,
             title:data.title,
+            availability:data.availability,
             similarProducts:data.similar_products,
             totalReviews:data.total_reviews,
         }
@@ -49,20 +51,52 @@ const ProductItemDetails=(props)=>{
 
     useEffect(()=>{
         getDetailedProduct()
-    })
+    },[])
 
 
     return (
         <>
          <Header />
+         <div>
             <div className="detailed-product">
                <div className="product-detailed">
                     <img className="detailed-image" src={detailedProductItem.imageUrl} />
-                    <div>
+                    <div className="product-details-container">
                         <h1>{detailedProductItem.title}</h1>
-                        <p>{detailedProductItem.price}</p>
+                        <p className="product-price">{`Rs  ${detailedProductItem.price }/-`}</p>
+                        <div className="reviewAndRating">
+                            <div className="rating-container">
+                                <p>{detailedProductItem.rating}</p>
+                                <img className="star" src="https://assets.ccbp.in/frontend/react-js/star-img.png" alt="star" />
+                            </div>
+                            <p>{`${detailedProductItem.totalReviews} Reviews`}</p>
+                        </div>
+                        <p>{detailedProductItem.description}</p>
+                       <div className="availability">
+                            <p className="avail">Availability:</p>
+                            <p>{detailedProductItem.availability}</p>
+                       </div>
+                       <div className="brand-detls">
+                          <p className="brand">Brand:</p>
+                          <p>{detailedProductItem.brand}</p>
+                       </div>
+                       <hr className="line"/>
+                       <div className="custom-quantity">
+                        <button className="minus-btn" type="button">-</button>
+                         <p>0</p>
+                        <button className="plus-btn">+</button>
+                    </div>
+                    <button type="button" className="add-cart-btn">ADD TO CART</button>
                     </div>
                </div>
+              
+            </div>
+            <div className="similar-products-list">
+                <h1 className="similar-heading">Similar Products</h1>
+                <ul className="similar-list">{similarProducts.map((eachSimilarProduct)=>(
+                    <SimilarProducts similarProduct={eachSimilarProduct} key={eachSimilarProduct.id} />
+                ))}</ul>
+            </div>
             </div>
         </>
     )

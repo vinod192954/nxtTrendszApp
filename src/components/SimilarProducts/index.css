@@ -1,0 +1,31 @@
+.similar-product-item{
+    padding: 12px;
+    margin-right: 10px;
+}
+
+.similar-product-img{
+    height: 280px;
+    border-radius: 10px;
+}
+.price{
+    font-weight: 600;
+}
+.title{
+    font-size: 18px;
+}
+.priceAndRating{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.rating{
+    display: flex;
+    padding: 8px;
+    color: #fff;
+    border-radius: 5px;
+    align-items: center;
+    background-color: blue;
+}
+.star-custom{
+    height: 20px;
+}

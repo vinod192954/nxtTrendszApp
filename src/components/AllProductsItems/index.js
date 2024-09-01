@@ -2,6 +2,7 @@ import { useState,useEffect } from "react"
 import{ThreeDots}from 'react-loader-spinner'
 import ProductCard from "../ProductCard"
 import ProductsHeader from "../ProductsHeader"
+import FiltersGroup from "../FiltersGroup"
 import Cookies from 'js-cookie'
 import "./index.css" 
 const apiStatusConstants={
@@ -11,15 +12,62 @@ const apiStatusConstants={
   progress:'PROGRESS'
 }
 
+const categoryOptions = [
+  {
+    name: 'Clothing',
+    categoryId: '1',
+  },
+  {
+    name: 'Electronics',
+    categoryId: '2',
+  },
+  {
+    name: 'Appliances',
+    categoryId: '3',
+  },
+  {
+    name: 'Grocery',
+    categoryId: '4',
+  },
+  {
+    name: 'Toys',
+    categoryId: '5',
+  },
+]
+
+const ratingsList = [
+  {
+    ratingId: '4',
+    imageUrl:
+      'https://assets.ccbp.in/frontend/react-js/rating-four-stars-img.png',
+  },
+  {
+    ratingId: '3',
+    imageUrl:
+      'https://assets.ccbp.in/frontend/react-js/rating-three-stars-img.png',
+  },
+  {
+    ratingId: '2',
+    imageUrl:
+      'https://assets.ccbp.in/frontend/react-js/rating-two-stars-img.png',
+  },
+  {
+    ratingId: '1',
+    imageUrl:
+      'https://assets.ccbp.in/frontend/react-js/rating-one-star-img.png',
+  },
+]
+
+
 
 const sortbyOptions = [
     {
       optionId: 'PRICE_HIGH',
-      displayText: 'Price(Low-High)',
+      displayText: 'Price(High-Low)',
     },
     {
       optionId: 'PRICE_LOW',
-      displayText: 'Price(High-Low)',
+      displayText: 'Price(Low-High)',
     },
   ]
   
@@ -27,15 +75,40 @@ const AllProductsItems=()=>{
   const [productsList,setProductsList] = useState([])
   const [isLoading,setLoading] = useState(false)
   const [activeOptionId,setOptionId] = useState(sortbyOptions[0].optionId)
-  
+  const [activeCategoryId,setCategory] = useState('')
+  const [activeRatingId,setRating] = useState('') 
+  const [searchTitle,setSearchInput] = useState('')
   
  
-  
+  const changeActiveCategory=(category)=>{
+      setCategory(category)
+     
+  }
+
+  const changeActiveRating=(rating)=>{
+    setRating(rating)
+    console.log(rating)
+   
+  }
+
+  const clearFilters=()=>{
+    setCategory('')
+    setOptionId('')
+    setRating('')
+    setSearchInput('')
+    getProductsItems()
+  }
+
+  const changeSearchInput=(searchInput)=>{
+    setSearchInput(searchInput)
+    
+  }
+
   
   const getProductsItems=async()=>{
     setLoading(true)
     const jwtToken = Cookies.get("jwt_token")
-    const url=`https://apis.ccbp.in/products?sort_by=${activeOptionId}`
+    const url=`https://apis.ccbp.in/products?sort_by=${activeOptionId}&category=${activeCategoryId}&rating=${activeRatingId}&title_search=${searchTitle}`
     const options = {
         method:'GET',
         headers:{
@@ -62,7 +135,7 @@ const AllProductsItems=()=>{
 
   useEffect(()=>{
         getProductsItems()
-    },[activeOptionId])
+    },[activeOptionId,activeCategoryId,activeRatingId])
 
 
     const updateActiveOptionId=(activeId)=>{
@@ -76,16 +149,24 @@ const AllProductsItems=()=>{
     </div>
  )
 const renderProducts=()=>( 
-    <>
+    <div className="products-sections-view">
         <ProductsHeader sortbyOptions={sortbyOptions} activeOptionId={activeOptionId} updateActiveOptionId={updateActiveOptionId} />
     <ul className="item-list">{productsList.map((eachProduct)=>(
     <ProductCard product={eachProduct} key={eachProduct.id} />
         ))}
     </ul>
-    </>
+    </div>
     )
     return (
         <div className="products-container">
+          <FiltersGroup categoryOptions={categoryOptions} 
+          ratingsList={ratingsList} 
+           searchTitle={searchTitle}
+           clearFilters={clearFilters}
+           getProductsItems={getProductsItems}
+          changeActiveCategory={changeActiveCategory}
+          changeActiveRating={changeActiveRating}
+          changeSearchInput={changeSearchInput}/>
            {isLoading ? renderLoader() : renderProducts()}
         </div>
     )

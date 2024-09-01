@@ -1,6 +1,16 @@
 .products-container{
-   
-    width: 100%;
+   display: flex;
+   width: 100%;
+   justify-content: space-between;
+ 
+  
+}
+.products-sections-view{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 30px;
+    width: 70%;
 }
 .item-list{
     list-style-type: none;

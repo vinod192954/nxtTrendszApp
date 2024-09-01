@@ -12,9 +12,10 @@ const FiltersGroup=(props)=>{
             }
         }
 
-        return (<div className="input-container">
+        return (
+            <div className="input-container">
             <input className="search-input" value={searchTitle}
-             onKeyDown={onChangeEvent} onChange={searchProduct} type="search" placeholder="search" />
+             onKeyDown={onChangeEvent} onChange={searchProduct} type="search" placeholder="Search" />
         </div>)
     }
 

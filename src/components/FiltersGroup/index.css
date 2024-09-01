@@ -5,7 +5,12 @@
     padding: 10px;
 }
 .input-container{
-    margin-top: 60px;   
+    margin-top: 60px;  
+    display: flex;
+    align-items: center;
+    background-color: #f1f5f9;
+    border-radius: 8px;
+    padding: 16px 16px 8px 8px;
 }
 .category-section{
     padding: 10px;
@@ -17,12 +22,14 @@
     margin-top: 10px;
 }
 .search-input{
-    height: 25px;
-    width: 220px;
-    padding: 6px;
-    font-size: 18px;
-    border-radius: 5px;
-   
+  background-color: #f1f5f9;
+  color: #0f172a;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  flex-grow: 1;
+  font-family: Roboto;
 }
 .category-section li {
     font-size: 20px;

@@ -4,15 +4,22 @@ import ProductCard from "../ProductCard"
 import ProductsHeader from "../ProductsHeader"
 import Cookies from 'js-cookie'
 import "./index.css" 
+const apiStatusConstants={
+  initial:'INITIAL',
+  successful:'SUCCESSFULL',
+  failure:'FAILURE',
+  progress:'PROGRESS'
+}
+
 
 const sortbyOptions = [
     {
       optionId: 'PRICE_HIGH',
-      displayText: 'Price (High-Low)',
+      displayText: 'Price(Low-High)',
     },
     {
       optionId: 'PRICE_LOW',
-      displayText: 'Price (Low-High)',
+      displayText: 'Price(High-Low)',
     },
   ]
   

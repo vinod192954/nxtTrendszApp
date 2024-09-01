@@ -4,13 +4,14 @@ import Cookies from "js-cookie"
 import ProductCard from "../ProductCard"
 import "./index.css"
 const apiUrlStatusConstants = {
+    initial:'INITIAL',
     success:'SUCCESS',
     progress:'PROGRESS',
     failure:'FAILURE',
 }
 const PrimeDeals=()=>{ 
     const [primeDeals,setPrimeDeals] = useState([])
-    const [status,setStatus] = useState(false) 
+    const [status,setStatus] = useState(apiUrlStatusConstants.progress) 
 
     const getPrimeDeals=async()=>{
         setStatus(apiUrlStatusConstants.progress)

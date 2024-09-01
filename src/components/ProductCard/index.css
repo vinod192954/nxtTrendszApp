@@ -17,6 +17,7 @@
     max-height: 350px;
     border-radius: 6px;
     width: 100%;
+    max-width: 100%;
 }
 .rating-container{
     background-color: #3b82f6;

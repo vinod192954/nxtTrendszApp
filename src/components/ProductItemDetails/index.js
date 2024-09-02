@@ -7,7 +7,7 @@ import "./index.css"
 const ProductItemDetails=(props)=>{
      const [detailedProductItem,setDetailedProduct] = useState({})
      const [similarProducts,setSimilarProducts] = useState([])
-     const [quantity,setQuantity] = useState(0)
+     const [quantity,setQuantity] = useState(1)
     const getDetailedProduct=async()=>{
         const {match} = props 
         const {params} =match 
@@ -54,7 +54,7 @@ const ProductItemDetails=(props)=>{
         setQuantity(prevState=>prevState+1)
     }
     const decreaseQuantity=()=>{
-        if (quantity>1){
+        if (quantity>=1){
             setQuantity(prevState=>prevState-1)
         }
         

@@ -28,3 +28,17 @@
     color: #fff;
     width: 180px;
 }
+.text-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px;
+}
+.remove-text{
+    color: blue;
+}
+.remove-container{
+    background-color: transparent;
+    border-width: 0px;
+    cursor: pointer;
+}

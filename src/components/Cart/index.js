@@ -6,14 +6,21 @@ import "./index.css"
 const Cart=()=>{
   return <CartContext.Consumer>
     {value=>{
-        const {cartList} = value 
-        console.log(cartList)
+        const {cartList,removeAllCartItems} = value 
+        const onClickToClear=()=>{
+          removeAllCartItems()
+        } 
         const totalCartPrice= cartList.reduce((total,item)=>total + item.price,0)
         return (
             <>
                 <Header />
                 {cartList.length===0 ? <EmptyCartView/> : (<div>
-                    <h1 >My Cart</h1>
+                    <div className="text-container">
+                      <h1 >My Cart</h1>
+                      <button onClick={onClickToClear} className="remove-container">
+                        <p className="remove-text">Remove All</p>
+                      </button>
+                    </div>
                     <ul className="cart-items">
                        {cartList.map((eachCartItem)=>(
                         <CartItem cartItem={eachCartItem} key={eachCartItem.id} />

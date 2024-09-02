@@ -2,3 +2,29 @@
     padding: 10px;
     list-style-type: none;
 }
+.cart-summary{
+    padding: 10px;
+    text-align: end;
+    margin-right: 60px;
+    display: flex;
+    flex-direction: column;
+
+}
+.price-container{
+    display: flex;
+    align-items: center;
+}
+.total-price{
+    font-size: 26px;
+}
+.cart-total{
+    display: flex;
+    justify-content: end;
+}
+.checkout-btn{
+    background-color: blue;
+    padding: 10px;
+    border-width: 0px;
+    color: #fff;
+    width: 180px;
+}

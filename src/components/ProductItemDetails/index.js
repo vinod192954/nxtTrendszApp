@@ -54,7 +54,7 @@ const ProductItemDetails=(props)=>{
         setQuantity(prevState=>prevState+1)
     }
     const decreaseQuantity=()=>{
-        if (quantity>=1){
+        if (quantity>1){
             setQuantity(prevState=>prevState-1)
         }
         

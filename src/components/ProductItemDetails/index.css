@@ -76,9 +76,11 @@
 }
 .minus-btn{
     background-color: transparent;
+    cursor: pointer;
 }
 .plus-btn{
     background-color: transparent;
+    cursor: pointer;
 }
 .add-cart-btn{
     background-color: blue;
@@ -87,6 +89,7 @@
     padding: 10px;
     border-radius: 5px;
     margin-top: 10px;
+    cursor: pointer;
 }
 .similar-list{
     list-style-type: none;

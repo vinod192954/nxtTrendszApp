@@ -1,0 +1,33 @@
+.p-image{
+    height: 120px;
+    margin-right: 10px;
+    border-radius: 8px;
+}
+.cart-list-item{
+    display: flex;
+    padding: 15px;
+   margin-left: 10px;
+   margin-right: 20px;
+    width: 1350px;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.cart-item-title{
+    font-size: 22px;
+}
+.quantity-controls{
+    display: flex;
+}
+.cart-details{
+    display: flex;
+    align-items: center;
+}
+.btn{
+    background-color: transparent;
+    border-width: 0px;
+    cursor: pointer;
+}
+.cart-item-price{
+    font-weight: 600;
+}

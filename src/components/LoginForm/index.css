@@ -3,7 +3,7 @@
     margin-top: 40px;
     padding: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 .website-logo{
@@ -29,6 +29,7 @@
     border-color: #eae7e7;
     border-width: 0px;
     border-radius: 5px;
+    width: 100%;
 }
 .login-card div{
     margin-top: 10px;
@@ -54,6 +55,7 @@
 }
 .right-side-section{
     width: 45%;
+    margin-left: 20px;
 }
 
 @media screen and (max-width:769px) {
